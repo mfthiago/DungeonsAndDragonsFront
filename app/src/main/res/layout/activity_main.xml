@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/light_gray"
+    tools:context=".MainActivity"
+
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:text="Dungeons And Dragons"
+        android:textColor="@color/orange"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/anao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anão"
+                android:textColor="@color/dark_gray"
+                android:textSize="18sp"
+                android:background="@drawable/bg_button_disabled"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="20dp"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/elfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Elfo"
+                android:textColor="@color/dark_gray"
+                android:textSize="18sp"
+                android:background="@drawable/bg_button_disabled"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="20dp"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/gnomo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gnomo"
+                android:textColor="@color/dark_gray"
+                android:textSize="18sp"
+                android:background="@drawable/bg_button_disabled"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="20dp"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/humano"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Humano"
+                android:textColor="@color/dark_gray"
+                android:textSize="18sp"
+                android:background="@drawable/bg_button_disabled"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="20dp"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/meioelfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meio-Elfo"
+                android:textColor="@color/dark_gray"
+                android:textSize="18sp"
+                android:background="@drawable/bg_button_disabled"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="20dp"
+                />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/orc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Orc"
+                android:textColor="@color/dark_gray"
+                android:textSize="18sp"
+                android:background="@drawable/bg_button_disabled"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="20dp"
+                />
+
+        </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtListTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="All"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_margin="20dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewAtributos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Força:"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp"/>
+
+        <EditText
+            android:id="@+id/forca_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btn_diminuir_forca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_button_enabled"/>
+
+        <Button
+            android:id="@+id/btn_aumentar_forca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:background="@drawable/bg_button_enabled"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Destreza:"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp"/>
+
+        <EditText
+            android:id="@+id/destreza_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btn_diminuir_destreza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_button_enabled"/>
+
+        <Button
+            android:id="@+id/btn_aumentar_destreza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:background="@drawable/bg_button_enabled"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Constituição:"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp"/>
+
+        <EditText
+            android:id="@+id/constituicao_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btn_diminuir_constituicao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_button_enabled"/>
+
+        <Button
+            android:id="@+id/btn_aumentar_constituicao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:background="@drawable/bg_button_enabled"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sabedoria:"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp"/>
+
+        <EditText
+            android:id="@+id/sabedoria_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btn_diminuir_sabedoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_button_enabled"/>
+
+        <Button
+            android:id="@+id/btn_aumentar_sabedoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:background="@drawable/bg_button_enabled"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inteligência:"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp"/>
+
+        <EditText
+            android:id="@+id/inteligencia_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btn_diminuir_inteligencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_button_enabled"/>
+
+        <Button
+            android:id="@+id/btn_aumentar_inteligencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:background="@drawable/bg_button_enabled"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Carisma:"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp"/>
+
+        <EditText
+            android:id="@+id/carisma_valor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textSize="18sp"
+            android:layout_marginEnd="10dp"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btn_diminuir_carisma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_button_enabled"/>
+
+        <Button
+            android:id="@+id/btn_aumentar_carisma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:background="@drawable/bg_button_enabled"/>
+    </LinearLayout>
+
+
+</LinearLayout>
