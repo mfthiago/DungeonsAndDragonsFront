@@ -122,6 +122,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+
         binding.orc.setOnClickListener {
             clicked = true
             binding.anao.setBackgroundResource(R.drawable.bg_button_disabled)
