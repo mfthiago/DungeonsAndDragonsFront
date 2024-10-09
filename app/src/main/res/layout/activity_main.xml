@@ -161,19 +161,20 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
-        <Button
-            android:id="@+id/btn_diminuir_forca"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
+        <ImageButton
+            android:id="@+id/btSub_forca"
+            android:layout_width="85dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_menosum"
             android:layout_marginEnd="10dp"
             android:background="@drawable/bg_button_enabled"/>
 
-        <Button
-            android:id="@+id/btn_aumentar_forca"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+"
+        <ImageButton
+            android:id="@+id/btAdd_forca"
+            android:layout_width="85dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_maisum"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/bg_button_enabled"/>
     </LinearLayout>
     <LinearLayout
@@ -203,21 +204,21 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
-        <Button
-            android:id="@+id/btn_diminuir_destreza"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
+        <ImageButton
+            android:id="@+id/btSub_destreza"
+            android:layout_width="85dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_menosum"
             android:layout_marginEnd="10dp"
             android:background="@drawable/bg_button_enabled"/>
 
-        <Button
-            android:id="@+id/btn_aumentar_destreza"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+"
-            android:background="@drawable/bg_button_enabled"
-            />
+        <ImageButton
+            android:id="@+id/btAdd_destreza"
+            android:layout_width="85dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_maisum"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_button_enabled"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -246,19 +247,20 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
-        <Button
-            android:id="@+id/btn_diminuir_constituicao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
+        <ImageButton
+            android:id="@+id/btSub_constituicao"
+            android:layout_width="85dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_menosum"
             android:layout_marginEnd="10dp"
             android:background="@drawable/bg_button_enabled"/>
 
-        <Button
-            android:id="@+id/btn_aumentar_constituicao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+"
+        <ImageButton
+            android:id="@+id/btAdd_constituicao"
+            android:layout_width="85dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_maisum"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/bg_button_enabled"/>
     </LinearLayout>
     <LinearLayout
@@ -288,19 +290,20 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
-        <Button
-            android:id="@+id/btn_diminuir_sabedoria"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
+        <ImageButton
+            android:id="@+id/btSub_sabedoria"
+            android:layout_width="85dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_menosum"
             android:layout_marginEnd="10dp"
             android:background="@drawable/bg_button_enabled"/>
 
-        <Button
-            android:id="@+id/btn_aumentar_sabedoria"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+"
+        <ImageButton
+            android:id="@+id/btAdd_sabedoria"
+            android:layout_width="85dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_maisum"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/bg_button_enabled"/>
     </LinearLayout>
     <LinearLayout
@@ -330,19 +333,20 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
-        <Button
-            android:id="@+id/btn_diminuir_inteligencia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
+        <ImageButton
+            android:id="@+id/btSub_inteligencia"
+            android:layout_width="85dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_menosum"
             android:layout_marginEnd="10dp"
             android:background="@drawable/bg_button_enabled"/>
 
-        <Button
-            android:id="@+id/btn_aumentar_inteligencia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+"
+        <ImageButton
+            android:id="@+id/btAdd_inteligencia"
+            android:layout_width="85dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_maisum"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/bg_button_enabled"/>
     </LinearLayout>
     <LinearLayout
@@ -372,19 +376,20 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
-        <Button
-            android:id="@+id/btn_diminuir_carisma"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-"
+        <ImageButton
+            android:id="@+id/btSub_carisma"
+            android:layout_width="85dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_menosum"
             android:layout_marginEnd="10dp"
             android:background="@drawable/bg_button_enabled"/>
 
-        <Button
-            android:id="@+id/btn_aumentar_carisma"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+"
+        <ImageButton
+            android:id="@+id/btAdd_carisma"
+            android:layout_width="85dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_maisum"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/bg_button_enabled"/>
     </LinearLayout>
 
