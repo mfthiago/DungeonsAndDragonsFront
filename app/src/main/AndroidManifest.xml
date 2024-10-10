@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DeDFinal"
         tools:targetApi="31">
+        <activity android:name=".CharacterCreationActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
