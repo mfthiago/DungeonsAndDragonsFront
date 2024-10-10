@@ -31,6 +31,35 @@
             android:textStyle="bold"
             android:gravity="center" />
 
+        <TextView
+            android:id="@+id/points_remaining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pontos restantes: 27"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"/>
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome: "
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/raceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Raça: "
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"/>
+
+
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,7 +79,15 @@
                 android:id="@+id/forca_valor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
+                android:text="8"
+                android:textSize="18sp"
+                android:layout_marginEnd="10dp"/>
+
+            <TextView
+                android:id="@+id/forca_bonus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
                 android:textSize="18sp"
                 android:layout_marginEnd="10dp"/>
 
@@ -89,11 +126,20 @@
                 android:textSize="18sp"
                 android:layout_marginEnd="10dp"/>
 
+
             <EditText
                 android:id="@+id/destreza_valor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
+                android:text="8"
+                android:textSize="18sp"
+                android:layout_marginEnd="10dp"/>
+
+            <TextView
+                android:id="@+id/destreza_bonus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
                 android:textSize="18sp"
                 android:layout_marginEnd="10dp"/>
 
@@ -136,7 +182,15 @@
                 android:id="@+id/constituicao_valor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
+                android:text="8"
+                android:textSize="18sp"
+                android:layout_marginEnd="10dp"/>
+
+            <TextView
+                android:id="@+id/constituicao_bonus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
                 android:textSize="18sp"
                 android:layout_marginEnd="10dp"/>
 
@@ -179,7 +233,14 @@
                 android:id="@+id/sabedoria_valor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
+                android:text="8"
+                android:textSize="18sp"
+                android:layout_marginEnd="10dp"/>
+            <TextView
+                android:id="@+id/sabedoria_bonus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
                 android:textSize="18sp"
                 android:layout_marginEnd="10dp"/>
 
@@ -222,7 +283,14 @@
                 android:id="@+id/inteligencia_valor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
+                android:text="8"
+                android:textSize="18sp"
+                android:layout_marginEnd="10dp"/>
+            <TextView
+                android:id="@+id/inteligencia_bonus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
                 android:textSize="18sp"
                 android:layout_marginEnd="10dp"/>
 
@@ -265,7 +333,14 @@
                 android:id="@+id/carisma_valor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10"
+                android:text="8"
+                android:textSize="18sp"
+                android:layout_marginEnd="10dp"/>
+            <TextView
+                android:id="@+id/carisma_bonus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
                 android:textSize="18sp"
                 android:layout_marginEnd="10dp"/>
 
@@ -295,6 +370,14 @@
 
 
     </LinearLayout>
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/bg_button_enabled"
+        android:text="Voltar" />
 
     <Button
         android:id="@+id/continue_button"

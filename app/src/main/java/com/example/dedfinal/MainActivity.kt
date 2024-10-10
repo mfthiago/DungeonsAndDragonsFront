@@ -1,10 +1,12 @@
 package com.example.dedfinal
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var atributoAdapter: AtributoAdapter
     private val atributos = AtributosList()
+    private var selectedRace: String? = null
     private val atributosList : MutableList<Atributos> = mutableListOf()
     var clicked = false
 
@@ -34,6 +37,13 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.saveNameButton.setOnClickListener {
+            val nameInput: EditText = findViewById(R.id.name_input)
+            val name = nameInput.text.toString()
+
+            continuar(name)
+        }
 
         window.statusBarColor = Color.parseColor("#E0E0E0")
 
@@ -47,42 +57,32 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.anao.setOnClickListener {
-            val intent = Intent(this, CharacterCreationActivity::class.java)
-            startActivity(intent)
-        }
+            clicked = true
+            selectedRace = "Anão"
+            binding.anao.setBackgroundResource(R.drawable.bg_button_enabled)
+            binding.anao.setTextColor(Color.WHITE)
+            binding.elfo.setBackgroundResource(R.drawable.bg_button_disabled)
+            binding.elfo.setTextColor(R.color.dark_gray)
+            binding.humano.setBackgroundResource(R.drawable.bg_button_disabled)
+            binding.humano.setTextColor(R.color.dark_gray)
+            binding.gnomo.setBackgroundResource(R.drawable.bg_button_disabled)
+            binding.gnomo.setTextColor(R.color.dark_gray)
+            binding.meioelfo.setBackgroundResource(R.drawable.bg_button_disabled)
+            binding.meioelfo.setTextColor(R.color.dark_gray)
+            binding.orc.setBackgroundResource(R.drawable.bg_button_disabled)
+            binding.orc.setTextColor(R.color.dark_gray)
+            binding.recyclerViewAtributos.visibility = View.INVISIBLE
 
 
-        binding.elfo.setOnClickListener {
-            val intent = Intent(this, CharacterCreationActivity::class.java)
-            intent.putExtra("selected_race", "Elfo")
-            startActivity(intent)
-        }
-        binding.orc.setOnClickListener {
-            val intent = Intent(this, CharacterCreationActivity::class.java)
-            intent.putExtra("selected_race", "Orc")
-            startActivity(intent)
-        }
 
-        binding.meioelfo.setOnClickListener {
-            val intent = Intent(this, CharacterCreationActivity::class.java)
-            intent.putExtra("selected_race", "Meio-Elfo")
-            startActivity(intent)
-        }
-        binding.humano.setOnClickListener {
-            val intent = Intent(this, CharacterCreationActivity::class.java)
-            intent.putExtra("selected_race", "Humano")
-            startActivity(intent)
-        }
-        binding.gnomo.setOnClickListener {
-            val intent = Intent(this, CharacterCreationActivity::class.java)
-            intent.putExtra("selected_race", "Gnomo")
-            startActivity(intent)
+
         }
 
 
 
         binding.elfo.setOnClickListener {
             clicked = true
+            selectedRace = "Elfo"
             binding.anao.setBackgroundResource(R.drawable.bg_button_disabled)
             binding.anao.setTextColor(R.color.dark_gray)
             binding.elfo.setBackgroundResource(R.drawable.bg_button_enabled)
@@ -96,13 +96,14 @@ class MainActivity : AppCompatActivity() {
             binding.orc.setBackgroundResource(R.drawable.bg_button_disabled)
             binding.orc.setTextColor(R.color.dark_gray)
             binding.recyclerViewAtributos.visibility = View.INVISIBLE
-            binding.txtListTitle.text = "elfo"
+
 
 
         }
 
         binding.humano.setOnClickListener {
             clicked = true
+            selectedRace = "Humano"
             binding.anao.setBackgroundResource(R.drawable.bg_button_disabled)
             binding.anao.setTextColor(R.color.dark_gray)
             binding.elfo.setBackgroundResource(R.drawable.bg_button_disabled)
@@ -116,13 +117,14 @@ class MainActivity : AppCompatActivity() {
             binding.orc.setBackgroundResource(R.drawable.bg_button_disabled)
             binding.orc.setTextColor(R.color.dark_gray)
             binding.recyclerViewAtributos.visibility = View.INVISIBLE
-            binding.txtListTitle.text = "humano"
+
 
 
         }
 
         binding.gnomo.setOnClickListener {
             clicked = true
+            selectedRace = "Gnomo"
             binding.anao.setBackgroundResource(R.drawable.bg_button_disabled)
             binding.anao.setTextColor(R.color.dark_gray)
             binding.elfo.setBackgroundResource(R.drawable.bg_button_disabled)
@@ -136,13 +138,14 @@ class MainActivity : AppCompatActivity() {
             binding.orc.setBackgroundResource(R.drawable.bg_button_disabled)
             binding.orc.setTextColor(R.color.dark_gray)
             binding.recyclerViewAtributos.visibility = View.INVISIBLE
-            binding.txtListTitle.text = "gnomo"
+
 
 
         }
 
         binding.meioelfo.setOnClickListener {
             clicked = true
+            selectedRace = "Meio-Elfo"
             binding.anao.setBackgroundResource(R.drawable.bg_button_disabled)
             binding.anao.setTextColor(R.color.dark_gray)
             binding.elfo.setBackgroundResource(R.drawable.bg_button_disabled)
@@ -156,7 +159,7 @@ class MainActivity : AppCompatActivity() {
             binding.orc.setBackgroundResource(R.drawable.bg_button_disabled)
             binding.orc.setTextColor(R.color.dark_gray)
             binding.recyclerViewAtributos.visibility = View.INVISIBLE
-            binding.txtListTitle.text = "meioelfo"
+
 
 
         }
@@ -164,6 +167,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.orc.setOnClickListener {
             clicked = true
+            selectedRace = "Orc"
             binding.anao.setBackgroundResource(R.drawable.bg_button_disabled)
             binding.anao.setTextColor(R.color.dark_gray)
             binding.elfo.setBackgroundResource(R.drawable.bg_button_disabled)
@@ -177,7 +181,7 @@ class MainActivity : AppCompatActivity() {
             binding.orc.setBackgroundResource(R.drawable.bg_button_enabled)
             binding.orc.setTextColor(Color.WHITE)
             binding.recyclerViewAtributos.visibility = View.INVISIBLE
-            binding.txtListTitle.text = "orc"
+
 
 
         }
@@ -188,5 +192,14 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+    private fun continuar(name: String) {
+        val sharedPreferences = getSharedPreferences("com.example.dedfinal.PREFERENCES", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("saved_name", name)
+        editor.putString("selected_race", selectedRace)
+        editor.apply()
+        val intent = Intent(this, CharacterCreationActivity::class.java)
+        startActivity(intent)
     }
 }

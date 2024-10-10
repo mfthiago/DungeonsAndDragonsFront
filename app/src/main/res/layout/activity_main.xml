@@ -23,6 +23,8 @@
         android:textStyle="bold"
         android:gravity="center" />
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -116,14 +118,29 @@
         </HorizontalScrollView>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtListTitle"
+    <EditText
+        android:id="@+id/name_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="All"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_margin="20dp"/>
+        android:hint="Enter your name"
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/save_name_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Continuar"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/bg_button_enabled" />
+
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewAtributos"
@@ -134,264 +151,6 @@
 
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="20dp"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Força:"
-            android:textSize="18sp"
-            android:layout_marginEnd="10dp"/>
-
-        <EditText
-            android:id="@+id/forca_valor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10"
-            android:textSize="18sp"
-            android:layout_marginEnd="10dp"/>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <ImageButton
-            android:id="@+id/btSub_forca"
-            android:layout_width="85dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_menosum"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/bg_button_enabled"/>
-
-        <ImageButton
-            android:id="@+id/btAdd_forca"
-            android:layout_width="85dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_maisum"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/bg_button_enabled"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="20dp"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Destreza:"
-            android:textSize="18sp"
-            android:layout_marginEnd="10dp"/>
-
-        <EditText
-            android:id="@+id/destreza_valor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10"
-            android:textSize="18sp"
-            android:layout_marginEnd="10dp"/>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <ImageButton
-            android:id="@+id/btSub_destreza"
-            android:layout_width="85dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_menosum"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/bg_button_enabled"/>
-
-        <ImageButton
-            android:id="@+id/btAdd_destreza"
-            android:layout_width="85dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_maisum"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/bg_button_enabled"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="20dp"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Constituição:"
-            android:textSize="18sp"
-            android:layout_marginEnd="10dp"/>
-
-        <EditText
-            android:id="@+id/constituicao_valor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10"
-            android:textSize="18sp"
-            android:layout_marginEnd="10dp"/>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <ImageButton
-            android:id="@+id/btSub_constituicao"
-            android:layout_width="85dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_menosum"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/bg_button_enabled"/>
-
-        <ImageButton
-            android:id="@+id/btAdd_constituicao"
-            android:layout_width="85dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_maisum"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/bg_button_enabled"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="20dp"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sabedoria:"
-            android:textSize="18sp"
-            android:layout_marginEnd="10dp"/>
-
-        <EditText
-            android:id="@+id/sabedoria_valor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10"
-            android:textSize="18sp"
-            android:layout_marginEnd="10dp"/>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <ImageButton
-            android:id="@+id/btSub_sabedoria"
-            android:layout_width="85dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_menosum"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/bg_button_enabled"/>
-
-        <ImageButton
-            android:id="@+id/btAdd_sabedoria"
-            android:layout_width="85dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_maisum"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/bg_button_enabled"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="20dp"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Inteligência:"
-            android:textSize="18sp"
-            android:layout_marginEnd="10dp"/>
-
-        <EditText
-            android:id="@+id/inteligencia_valor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10"
-            android:textSize="18sp"
-            android:layout_marginEnd="10dp"/>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <ImageButton
-            android:id="@+id/btSub_inteligencia"
-            android:layout_width="85dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_menosum"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/bg_button_enabled"/>
-
-        <ImageButton
-            android:id="@+id/btAdd_inteligencia"
-            android:layout_width="85dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_maisum"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/bg_button_enabled"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="20dp"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Carisma:"
-            android:textSize="18sp"
-            android:layout_marginEnd="10dp"/>
-
-        <EditText
-            android:id="@+id/carisma_valor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10"
-            android:textSize="18sp"
-            android:layout_marginEnd="10dp"/>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <ImageButton
-            android:id="@+id/btSub_carisma"
-            android:layout_width="85dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_menosum"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/bg_button_enabled"/>
-
-        <ImageButton
-            android:id="@+id/btAdd_carisma"
-            android:layout_width="85dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_maisum"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/bg_button_enabled"/>
-    </LinearLayout>
 
 
 </LinearLayout>
