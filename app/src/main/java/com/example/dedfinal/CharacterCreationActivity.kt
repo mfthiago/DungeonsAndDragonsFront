@@ -1,6 +1,7 @@
 package com.example.dedfinal
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -31,6 +32,7 @@ class CharacterCreationActivity : AppCompatActivity() {
         mostrarBonusRacial(selectedRace)
         setupIncrementDecrementButtons()
         setupBackButton()
+        setupContinuarButton()
         updatePointsRemaining()
 
     }
@@ -88,7 +90,26 @@ class CharacterCreationActivity : AppCompatActivity() {
     private fun setupBackButton() {
         val backButton: Button = findViewById(R.id.back_button)
         backButton.setOnClickListener {
-            finish() // Finaliza a atividade atual e volta para a anterior
+            finish()
+        }
+    }
+    private fun setupContinuarButton() {
+        val continueButton: Button = findViewById(R.id.continue_button)
+        continueButton.setOnClickListener {
+            val sharedPreferences = getSharedPreferences("com.example.dedfinal.PREFERENCES", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+
+            editor.putInt("forca", binding.forcaValor.text.toString().toInt())
+            editor.putInt("destreza", binding.destrezaValor.text.toString().toInt())
+            editor.putInt("constituicao", binding.constituicaoValor.text.toString().toInt())
+            editor.putInt("inteligencia", binding.inteligenciaValor.text.toString().toInt())
+            editor.putInt("sabedoria", binding.sabedoriaValor.text.toString().toInt())
+            editor.putInt("carisma", binding.carismaValor.text.toString().toInt())
+
+            editor.apply()
+
+            val intent = Intent(this, FinishedCharacterActivity::class.java)
+            startActivity(intent)
         }
     }
 
