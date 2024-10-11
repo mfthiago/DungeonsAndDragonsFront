@@ -71,5 +71,15 @@
         android:layout_margin="16dp"/>
 
 
+
 </LinearLayout>
+    <Button
+        android:id="@+id/inicio_button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/bg_button_enabled"
+        android:text="Início" />
 </androidx.cardview.widget.CardView>

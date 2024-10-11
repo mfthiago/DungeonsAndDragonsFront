@@ -122,7 +122,7 @@
         android:id="@+id/name_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter your name"
+        android:hint="Coloque seu nome"
         android:layout_margin="20dp"
         android:padding="10dp"
         android:background="@color/white"

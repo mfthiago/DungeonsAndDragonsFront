@@ -1,7 +1,9 @@
 package com.example.dedfinal
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dedfinal.databinding.FinishedCharacterBinding
 import models.Anao
@@ -21,6 +23,7 @@ class FinishedCharacterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = FinishedCharacterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setupInicioButton()
 
         val sharedPreferences = getSharedPreferences("com.example.dedfinal.PREFERENCES", Context.MODE_PRIVATE)
         val savedName = sharedPreferences.getString("saved_name", "Nome não encontrado") ?: "Nome não encontrado"
@@ -31,6 +34,8 @@ class FinishedCharacterActivity : AppCompatActivity() {
         val inteligencia = sharedPreferences.getInt("inteligencia", 0)
         val sabedoria = sharedPreferences.getInt("sabedoria", 0)
         val carisma = sharedPreferences.getInt("carisma", 0)
+
+
 
 
 
@@ -75,5 +80,14 @@ class FinishedCharacterActivity : AppCompatActivity() {
             Carisma: ${personagem.carisma}
         """.trimIndent()
         binding.hitPointsTextView.text = "Pontos de Vida: ${personagem.pontosDeVida}"
+    }
+    private fun setupInicioButton() {
+        val inicioButton: Button = findViewById(R.id.inicio_button)
+        inicioButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+            finish()
+        }
     }
 }
