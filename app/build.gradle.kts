@@ -42,7 +42,7 @@ android {
 
 dependencies {
 
-    implementation("com.github.mfthiago:DeDBack:2.2")
+    implementation("com.github.mfthiago:DeDBack:2.6")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
