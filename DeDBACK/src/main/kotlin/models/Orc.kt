@@ -1,5 +1,6 @@
 package models
 
+import models.Atributos
 import services.RacaStrategy
 
 class Orc : RacaStrategy {

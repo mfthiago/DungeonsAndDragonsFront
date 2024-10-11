@@ -9,12 +9,15 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dedfinal.databinding.CharacterCreationBinding
+import services.DistribuicaoAtributos
+
 
 class CharacterCreationActivity : AppCompatActivity() {
 
     private lateinit var binding: CharacterCreationBinding
     private var totalPoints = 27
 
+    val custoPontos = DistribuicaoAtributos().custoPontos
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +28,6 @@ class CharacterCreationActivity : AppCompatActivity() {
             getSharedPreferences("com.example.dedfinal.PREFERENCES", Context.MODE_PRIVATE)
         val savedName = sharedPreferences.getString("saved_name", "Nome não encontrado")
         val selectedRace = sharedPreferences.getString("selected_race", "Raça não encontrada")
-
         binding.nameTextView.text = savedName
         binding.raceTextView.text = selectedRace
 
@@ -37,16 +39,7 @@ class CharacterCreationActivity : AppCompatActivity() {
 
     }
 
-    val custoPontos = mapOf(
-        8 to 0,
-        9 to 1,
-        10 to 2,
-        11 to 3,
-        12 to 4,
-        13 to 5,
-        14 to 7,
-        15 to 9
-    )
+
 
     private fun setupIncrementDecrementButtons() {
         setupButton(binding.btAddForca, binding.btSubForca, binding.forcaValor)
@@ -105,6 +98,7 @@ class CharacterCreationActivity : AppCompatActivity() {
             editor.putInt("inteligencia", binding.inteligenciaValor.text.toString().toInt())
             editor.putInt("sabedoria", binding.sabedoriaValor.text.toString().toInt())
             editor.putInt("carisma", binding.carismaValor.text.toString().toInt())
+
 
             editor.apply()
 

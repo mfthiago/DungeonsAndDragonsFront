@@ -23,7 +23,7 @@ class FinishedCharacterActivity : AppCompatActivity() {
         val inteligencia = sharedPreferences.getInt("inteligencia", 0)
         val sabedoria = sharedPreferences.getInt("sabedoria", 0)
         val carisma = sharedPreferences.getInt("carisma", 0)
-        val hitPoints = 10 + constituicao
+        val hitPoints = ((constituicao -10)/2) + 10
 
         binding.nameTextView.text = "Nome: $savedName"
         binding.raceTextView.text = "Raça: $selectedRace"
