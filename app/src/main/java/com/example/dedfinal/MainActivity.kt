@@ -1,16 +1,25 @@
-package com.example.dedfinal
-
+import android.Manifest
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dedfinal.CharacterCreationActivity
+import com.example.dedfinal.R
 import com.example.dedfinal.adapter.AtributoAdapter
 import com.example.dedfinal.databinding.ActivityMainBinding
 import com.example.dedfinal.listitems.AtributosList
@@ -29,9 +38,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var atributoAdapter: AtributoAdapter
     private val atributos = AtributosList()
     private var selectedRace: RacaStrategy? = null
-    private val atributosList : MutableList<Atributos> = mutableListOf()
+    private val atributosList: MutableList<Atributos> = mutableListOf()
     var clicked = false
-
 
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,14 +56,11 @@ class MainActivity : AppCompatActivity() {
 
         window.statusBarColor = Color.parseColor("#E0E0E0")
 
-
-
         val recyclerViewAtributos = binding.recyclerViewAtributos
-        recyclerViewAtributos.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
+        recyclerViewAtributos.layoutManager = LinearLayoutManager(this)
         recyclerViewAtributos.setHasFixedSize(true)
-        atributoAdapter = AtributoAdapter(this,atributosList)
+        atributoAdapter = AtributoAdapter(this, atributosList)
         recyclerViewAtributos.adapter = atributoAdapter
-
 
         binding.anao.setOnClickListener {
             clicked = true
@@ -73,13 +78,7 @@ class MainActivity : AppCompatActivity() {
             binding.orc.setBackgroundResource(R.drawable.bg_button_disabled)
             binding.orc.setTextColor(R.color.dark_gray)
             binding.recyclerViewAtributos.visibility = View.INVISIBLE
-
-
-
-
         }
-
-
 
         binding.elfo.setOnClickListener {
             clicked = true
@@ -97,9 +96,6 @@ class MainActivity : AppCompatActivity() {
             binding.orc.setBackgroundResource(R.drawable.bg_button_disabled)
             binding.orc.setTextColor(R.color.dark_gray)
             binding.recyclerViewAtributos.visibility = View.INVISIBLE
-
-
-
         }
 
         binding.humano.setOnClickListener {
@@ -118,9 +114,6 @@ class MainActivity : AppCompatActivity() {
             binding.orc.setBackgroundResource(R.drawable.bg_button_disabled)
             binding.orc.setTextColor(R.color.dark_gray)
             binding.recyclerViewAtributos.visibility = View.INVISIBLE
-
-
-
         }
 
         binding.gnomo.setOnClickListener {
@@ -139,9 +132,6 @@ class MainActivity : AppCompatActivity() {
             binding.orc.setBackgroundResource(R.drawable.bg_button_disabled)
             binding.orc.setTextColor(R.color.dark_gray)
             binding.recyclerViewAtributos.visibility = View.INVISIBLE
-
-
-
         }
 
         binding.meioelfo.setOnClickListener {
@@ -160,11 +150,7 @@ class MainActivity : AppCompatActivity() {
             binding.orc.setBackgroundResource(R.drawable.bg_button_disabled)
             binding.orc.setTextColor(R.color.dark_gray)
             binding.recyclerViewAtributos.visibility = View.INVISIBLE
-
-
-
         }
-
 
         binding.orc.setOnClickListener {
             clicked = true
@@ -182,11 +168,7 @@ class MainActivity : AppCompatActivity() {
             binding.orc.setBackgroundResource(R.drawable.bg_button_enabled)
             binding.orc.setTextColor(Color.WHITE)
             binding.recyclerViewAtributos.visibility = View.INVISIBLE
-
-
-
         }
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -194,6 +176,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
     }
+
     private fun continuar(name: String) {
         val sharedPreferences = getSharedPreferences("com.example.dedfinal.PREFERENCES", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
@@ -201,7 +184,10 @@ class MainActivity : AppCompatActivity() {
         editor.putString("selected_race", selectedRace?.javaClass?.simpleName)
         editor.apply()
 
+
         val intent = Intent(this, CharacterCreationActivity::class.java)
         startActivity(intent)
     }
+
+
 }

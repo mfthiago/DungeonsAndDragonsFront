@@ -44,6 +44,8 @@ dependencies {
 
     implementation("com.github.mfthiago:DeDBack:2.6")
     implementation(libs.androidx.core.ktx)
+    implementation ("androidx.core:core:1.7.0")
+    implementation ("androidx.core:core-ktx:1.7.0")
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)

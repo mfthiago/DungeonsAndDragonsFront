@@ -1,16 +1,23 @@
 package com.example.dedfinal
 
+import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.example.dedfinal.databinding.CharacterCreationBinding
 import services.DistribuicaoAtributos
-
 
 class CharacterCreationActivity : AppCompatActivity() {
 
@@ -36,10 +43,7 @@ class CharacterCreationActivity : AppCompatActivity() {
         setupBackButton()
         setupContinuarButton()
         updatePointsRemaining()
-
     }
-
-
 
     private fun setupIncrementDecrementButtons() {
         setupButton(binding.btAddForca, binding.btSubForca, binding.forcaValor)
@@ -86,6 +90,7 @@ class CharacterCreationActivity : AppCompatActivity() {
             finish()
         }
     }
+
     private fun setupContinuarButton() {
         val continueButton: Button = findViewById(R.id.continue_button)
         continueButton.setOnClickListener {
@@ -99,8 +104,20 @@ class CharacterCreationActivity : AppCompatActivity() {
             editor.putInt("sabedoria", binding.sabedoriaValor.text.toString().toInt())
             editor.putInt("carisma", binding.carismaValor.text.toString().toInt())
 
-
             editor.apply()
+
+
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                    1
+                )
+            } else {
+
+                showCustomNotification(this)
+            }
 
             val intent = Intent(this, FinishedCharacterActivity::class.java)
             startActivity(intent)
@@ -130,15 +147,72 @@ class CharacterCreationActivity : AppCompatActivity() {
                 sabedoriaBonusTextView.text = "+1"
                 carismaBonusTextView.text = "+1"
             }
-
             "Anão" -> constituicaoBonusTextView.text = "+2"
             "Orc" -> {
                 forcaBonusTextView.text = "+2"
                 constituicaoBonusTextView.text = "+1"
             }
-
             "Gnomo" -> inteligenciaBonusTextView.text = "+2"
             "Meio-Elfo" -> carismaBonusTextView.text = "+2"
+        }
+    }
+
+    private fun showCustomNotification(context: Context) {
+        val channelId = "movie_night_channel"
+        val notificationId = 101
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "Movie Night Channel"
+            val descriptionText = "Channel for movie night notifications"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(channelId, name, importance).apply {
+                description = descriptionText
+            }
+            val notificationManager: NotificationManager =
+                context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+
+
+        val notificationBuilder = NotificationCompat.Builder(context, channelId)
+            .setSmallIcon(R.drawable.ic_maisum)
+            .setContentTitle("Justin Rhyss")
+            .setContentText("Hey, do you have any plans for tonight? I was thinking a few of us could go watch a movie...")
+            .setStyle(
+                NotificationCompat.BigTextStyle()
+                    .bigText("Hey, do you have any plans for tonight? I was thinking a few of us could go watch a movie at the theater nearby since there won’t be much going on for the next couple of weeks. There are some great options at 6 and 7pm, but whatever works best for you. If you have any suggestions for dinner beforehand hit reply!")
+            )
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .addAction(R.drawable.ic_menosum, "Reply", null)  // Reply action (can add Intent)
+            .addAction(R.drawable.ic_maisum, "Archive", null)  // Archive action (can add Intent)
+            .setAutoCancel(true)
+
+        with(NotificationManagerCompat.from(context)) {
+            if (ActivityCompat.checkSelfPermission(
+                    context,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                ActivityCompat.requestPermissions(
+                    context as AppCompatActivity,
+                    arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                    1
+                )
+            }
+            notify(notificationId, notificationBuilder.build())
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 1) {
+            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+
+                showCustomNotification(this)
+            } else {
+
+            }
         }
     }
 }
