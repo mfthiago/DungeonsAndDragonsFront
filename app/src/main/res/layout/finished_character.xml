@@ -30,56 +30,56 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:gravity="center" />
-    <TextView
-        android:id="@+id/nameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nome: "
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="16dp"/>
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome: "
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="16dp"/>
 
-    <TextView
-        android:id="@+id/raceTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Raça: "
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/nameTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="16dp"/>
+        <TextView
+            android:id="@+id/raceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Raça: "
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/nameTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="16dp"/>
 
-    <TextView
-        android:id="@+id/attributesTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Atributos: "
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/raceTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="16dp"/>
+        <TextView
+            android:id="@+id/attributesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Atributos: "
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/raceTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="16dp"/>
 
-    <TextView
-        android:id="@+id/hitPointsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pontos de Vida: "
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/attributesTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="16dp"/>
+        <TextView
+            android:id="@+id/hitPointsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pontos de Vida: "
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/attributesTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="16dp"/>
 
 
 
-</LinearLayout>
+    </LinearLayout>
     <Button
-        android:id="@+id/inicio_button"
+        android:id="@+id/lista_button"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_gravity="bottom"
         android:layout_marginLeft="20dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/bg_button_enabled"
-        android:text="Início" />
+        android:text="Lista" />
 </androidx.cardview.widget.CardView>

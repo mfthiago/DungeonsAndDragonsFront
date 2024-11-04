@@ -9,6 +9,9 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        plugins {
+            id("org.jetbrains.kotlin.kapt") version "1.3.72"
+        }
     }
 }
 dependencyResolutionManagement {

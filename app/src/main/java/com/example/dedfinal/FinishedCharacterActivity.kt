@@ -1,11 +1,17 @@
 package com.example.dedfinal
 
-import MainActivity
+
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
+import com.example.dedfinal.data.CharacterDB
+import com.example.dedfinal.data.entities.CharacterEntity
+
 import com.example.dedfinal.databinding.FinishedCharacterBinding
 import models.Anao
 import models.Elfo
@@ -19,12 +25,18 @@ import services.RacaStrategy
 class FinishedCharacterActivity : AppCompatActivity() {
 
     private lateinit var binding: FinishedCharacterBinding
+    private lateinit var characterDB: CharacterDB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FinishedCharacterBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
-        setupInicioButton()
+
+        characterDB = Room.databaseBuilder(
+            applicationContext,
+            CharacterDB::class.java, "character_db"
+        ).build()
 
         val sharedPreferences = getSharedPreferences("com.example.dedfinal.PREFERENCES", Context.MODE_PRIVATE)
         val savedName = sharedPreferences.getString("saved_name", "Nome não encontrado") ?: "Nome não encontrado"
@@ -65,6 +77,30 @@ class FinishedCharacterActivity : AppCompatActivity() {
         personagem.aplicarBonusRacial()
 
         displayCharacterInfo(personagem)
+        setupListaButton(personagem)
+    }
+    @SuppressLint("LongLogTag")
+    private fun saveCharacterToDB(personagem: Personagem) {
+        val characterEntity = CharacterEntity(
+            nome = personagem.nome,
+            raca = personagem.raca.javaClass.simpleName,
+            forca = personagem.forca,
+            destreza = personagem.destreza,
+            constituicao = personagem.constituicao,
+            inteligencia = personagem.inteligencia,
+            sabedoria = personagem.sabedoria,
+            carisma = personagem.carisma
+        )
+
+        Thread {
+            try {
+                Log.d("FinishedCharacterActivity", "Inserting character: $characterEntity")
+                characterDB.getCharacterDao().insertCharacter(characterEntity)
+                Log.d("FinishedCharacterActivity", "Character inserted successfully")
+            } catch (e: Exception) {
+                Log.e("FinishedCharacterActivity", "Error inserting character", e)
+            }
+        }.start()
     }
 
 
@@ -82,13 +118,19 @@ class FinishedCharacterActivity : AppCompatActivity() {
         """.trimIndent()
         binding.hitPointsTextView.text = "Pontos de Vida: ${personagem.pontosDeVida}"
     }
-    private fun setupInicioButton() {
-        val inicioButton: Button = findViewById(R.id.inicio_button)
-        inicioButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
-            finish()
+    @SuppressLint("LongLogTag")
+    private fun setupListaButton(personagem: Personagem) {
+        val listaButton: Button = findViewById(R.id.lista_button)
+        listaButton.setOnClickListener {
+            try {
+                saveCharacterToDB(personagem)
+                val intent = Intent(this, CharacterListActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+                finish()
+            } catch (e: Exception) {
+                Log.e("FinishedCharacterActivity", "Error in setupListaButton", e)
+            }
         }
     }
 }
