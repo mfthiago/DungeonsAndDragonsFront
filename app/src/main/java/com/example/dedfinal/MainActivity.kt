@@ -6,6 +6,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -39,6 +40,12 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val characterListButton: Button = findViewById(R.id.character_list_button)
+        characterListButton.setOnClickListener {
+            val intent = Intent(this, CharacterListActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.saveNameButton.setOnClickListener {
             val nameInput: EditText = findViewById(R.id.name_input)

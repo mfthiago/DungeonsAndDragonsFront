@@ -1,6 +1,8 @@
 package com.example.dedfinal
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,6 +36,12 @@ class CharacterListActivity : AppCompatActivity() {
         characterDB.getCharacterDao().getAllCharacters().observe(this, Observer { characters ->
             characters?.let { adapter.setCharacters(it) }
         })
+
+        val mainButton: Button = findViewById(R.id.back_to_main_button)
+        mainButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun deleteCharacter(character: CharacterEntity) {

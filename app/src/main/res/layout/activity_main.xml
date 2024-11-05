@@ -140,7 +140,15 @@
         android:background="@drawable/bg_button_enabled" />
 
 
-
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/character_list_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lista de Personagens"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/bg_button_enabled" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewAtributos"
