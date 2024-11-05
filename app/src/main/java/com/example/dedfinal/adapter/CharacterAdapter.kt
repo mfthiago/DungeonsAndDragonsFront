@@ -4,12 +4,15 @@ package com.example.dedfinal
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dedfinal.data.entities.CharacterEntity
 
 
-class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
+class CharacterAdapter(
+    private val onDeleteClick: (CharacterEntity) -> Unit
+) : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
     private var characters: List<CharacterEntity> = emptyList()
 
@@ -22,6 +25,10 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHold
         val current = characters[position]
         holder.nameTextView.text = current.nome
         holder.raceTextView.text = current.raca
+
+        holder.deleteButton.setOnClickListener {
+            onDeleteClick(current)
+        }
     }
 
     override fun getItemCount() = characters.size
@@ -34,5 +41,6 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHold
     class CharacterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
         val raceTextView: TextView = itemView.findViewById(R.id.raceTextView)
+        val deleteButton: Button = itemView.findViewById(R.id.deleteButton)
     }
 }

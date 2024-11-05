@@ -56,7 +56,7 @@ class FinishedCharacterActivity : AppCompatActivity() {
             return when (selectedRace) {
                 "Elfo" -> Elfo()
                 "Humano" -> Humano()
-                "Anão" -> Anao()
+                "Anao" -> Anao()
                 "Orc" -> Orc()
                 "Gnomo" -> Gnomo()
                 "Meio-Elfo" -> MeioElfo()

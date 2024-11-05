@@ -26,11 +26,19 @@ class CharacterListActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = CharacterAdapter()
+        adapter = CharacterAdapter { character ->
+            deleteCharacter(character)
+        }
         recyclerView.adapter = adapter
 
         characterDB.getCharacterDao().getAllCharacters().observe(this, Observer { characters ->
             characters?.let { adapter.setCharacters(it) }
         })
+    }
+
+    private fun deleteCharacter(character: CharacterEntity) {
+        Thread {
+            characterDB.getCharacterDao().deleteCharacter(character)
+        }.start()
     }
 }

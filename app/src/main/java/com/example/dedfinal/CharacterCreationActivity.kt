@@ -131,7 +131,7 @@ class CharacterCreationActivity : AppCompatActivity() {
                 carismaBonusTextView.text = "+1"
             }
 
-            "Anão" -> constituicaoBonusTextView.text = "+2"
+            "Anao" -> constituicaoBonusTextView.text = "+2"
             "Orc" -> {
                 forcaBonusTextView.text = "+2"
                 constituicaoBonusTextView.text = "+1"
